@@ -28,10 +28,15 @@ class Invoice:
         total_pure_price = self.totalImpurePrice(products) - self.totalDiscount(products)
         return total_pure_price
 
-    def inputAnswer(selfself, input_value):
+    def printReceipt(self, products):
+        receipt = {'items': products, 'impure price': self.totalImpurePrice(products),
+                   'total discount': self.totalDiscount(products), 'pure price': self.totalPurePrice(products)}
+        return receipt
+
+    def inputAnswer(self, input_value):
         while True:
             userInput = input(input_value)
-            if userInput in ['v', 'n']:
+            if userInput in ['y', 'n']:
                 return userInput
             print("y or n! Try again.")
 
